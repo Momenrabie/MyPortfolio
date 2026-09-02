@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
@@ -12,13 +12,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: SITE_NAME,
+    default: `${SITE_NAME} · Full-Stack Engineer`,
     template: `%s · ${SITE_NAME}`,
   },
-  description: "Personal portfolio",
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: SITE_NAME,
-    description: "Personal portfolio",
+    title: `${SITE_NAME} · Full-Stack Engineer`,
+    description: SITE_DESCRIPTION,
     type: "website",
     url: "/",
   },

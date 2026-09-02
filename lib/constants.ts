@@ -1,6 +1,10 @@
-export const SITE_NAME = "Portfolio";
+export const SITE_NAME = "Momen Rabie";
+
+export const SITE_DESCRIPTION =
+  "Full-Stack Engineer portfolio showcasing projects, technical skills, and experience building modern web applications with Next.js, TypeScript, and Node.js.";
 
 export const NAV_ITEMS = [
+  { href: "/#home", label: "Home" },
   { href: "/#about", label: "About" },
   { href: "/#skills", label: "Skills" },
   { href: "/#projects", label: "Projects" },
