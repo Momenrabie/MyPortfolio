@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { AppButton } from "@/components/app/app-button";
 import { CodeWindow } from "@/components/sections/hero/code-window";
-import { StackIcon } from "@/components/sections/hero/stack-icons";
 import {
   hero,
   heroCodeLines,
@@ -43,23 +42,14 @@ export function HeroSection() {
               </Link>
             </AppButton>
           </div>
-          <ul className="flex flex-wrap gap-2">
-            {hero.stack.map((item) => (
-              <li
-                key={item.id}
-                className="flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-sm text-foreground"
-              >
-                <StackIcon id={item.id} className="size-4 text-primary" />
-                {item.label}
-              </li>
-            ))}
-          </ul>
         </div>
-        <CodeWindow
-          fileName={hero.codeFileName}
-          lines={heroCodeLines}
-          durationMs={heroTypewriterDurationMs}
-        />
+        <div className="motion-safe:animate-float">
+          <CodeWindow
+            fileName={hero.codeFileName}
+            lines={heroCodeLines}
+            durationMs={heroTypewriterDurationMs}
+          />
+        </div>
       </div>
     </section>
   );
