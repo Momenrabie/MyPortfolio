@@ -20,7 +20,7 @@ export const hero = {
     "I design and ship production web apps with Next.js, TypeScript, and Node.js — from polished interfaces to reliable backends.",
   primaryCta: { href: "/#contact", label: "Hire Me" },
   secondaryCta: { href: "/#projects", label: "View Work" },
-  stack: [
+  skills: [
     { id: "nextjs", label: "Next.js" },
     { id: "typescript", label: "TypeScript" },
     { id: "prisma", label: "Prisma" },
@@ -34,14 +34,12 @@ export const hero = {
   codeFileName: "developer.ts",
 } as const;
 
-export type HeroStackId = (typeof hero.stack)[number]["id"];
-
-function stackCodeLines(): CodeLine[] {
-  const lastIndex = hero.stack.length - 1;
+function skillsCodeLines(): CodeLine[] {
+  const lastIndex = hero.skills.length - 1;
 
   return [
-    { indent: 2, tokens: [{ kind: "plain", text: "stack: [" }] },
-    ...hero.stack.map((item, index) => ({
+    { indent: 2, tokens: [{ kind: "plain", text: "skills: [" }] },
+    ...hero.skills.map((item, index) => ({
       indent: 4,
       tokens: [
         { kind: "string" as const, text: `"${item.label}"` },
@@ -76,7 +74,7 @@ export const heroCodeLines: CodeLine[] = [
       { kind: "plain", text: "," },
     ],
   },
-  ...stackCodeLines(),
+  ...skillsCodeLines(),
   {
     indent: 2,
     tokens: [{ kind: "comment", text: "// always shipping" }],

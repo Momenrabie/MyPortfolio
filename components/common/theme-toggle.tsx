@@ -3,13 +3,13 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button";
+import { AppButton } from "@/components/app/app-button";
 
 export function ThemeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <Button
+    <AppButton
       type="button"
       variant="outline"
       size="icon"
@@ -21,6 +21,6 @@ export function ThemeToggle() {
     >
       <Sun className="size-4 dark:hidden" />
       <Moon className="hidden size-4 dark:block" />
-    </Button>
+    </AppButton>
   );
 }
