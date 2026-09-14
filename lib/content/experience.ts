@@ -8,7 +8,7 @@ export type ExperienceRole = {
 };
 
 export const experience = {
-  index: "05",
+  index: "04",
   eyebrow: "Experience",
   heading: "Where the work shipped.",
   description:

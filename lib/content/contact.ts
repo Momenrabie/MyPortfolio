@@ -17,7 +17,7 @@ export const contact: {
   location: string;
   channels: readonly ContactChannel[];
 } = {
-  index: "06",
+  index: "05",
   eyebrow: "Contact",
   heading: "Let's work together.",
   description:
