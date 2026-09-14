@@ -12,10 +12,10 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="flex min-h-[calc(100svh-4rem)] scroll-mt-16 items-center overflow-x-clip px-6 py-16"
+      className="flex min-h-[calc(100svh-4rem)] items-center overflow-x-clip px-6 py-16"
     >
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="flex flex-col gap-6 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700">
+      <div className="mx-auto grid w-full min-w-0 max-w-6xl items-center gap-12 md:grid-cols-2 md:gap-10 lg:gap-16">
+        <div className="flex min-w-0 flex-col gap-6 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700">
           <p className="text-sm font-medium tracking-widest text-muted-foreground uppercase">
             {hero.eyebrow}
           </p>
@@ -43,7 +43,7 @@ export function HeroSection() {
             </AppButton>
           </div>
         </div>
-        <div className="motion-safe:animate-float">
+        <div className="min-w-0">
           <CodeWindow
             fileName={hero.codeFileName}
             lines={heroCodeLines}

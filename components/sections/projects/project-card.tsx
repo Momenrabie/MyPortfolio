@@ -3,26 +3,41 @@ import Image from "next/image";
 
 import { ProjectPreview } from "@/components/sections/projects/project-preview";
 import type { ProjectItem } from "@/lib/content/projects";
+import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
   project: ProjectItem;
+  liftOnHover?: boolean;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  liftOnHover = true,
+}: ProjectCardProps) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform motion-safe:hover:-translate-y-1">
+    <article
+      className={cn(
+        "group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm",
+        liftOnHover && "transition-transform motion-safe:hover:-translate-y-1",
+      )}
+    >
       {project.imageSrc ? (
         <div className="relative aspect-video overflow-hidden border-b border-border">
           <Image
             src={project.imageSrc}
             alt={`${project.title} preview`}
             fill
-            className="object-cover object-top"
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-105"
+            sizes="(min-width: 1024px) 44vw, (min-width: 640px) 62vw, 82vw"
           />
         </div>
-      ) : (
+      ) : project.preview ? (
         <ProjectPreview kind={project.preview} title={project.title} />
+      ) : (
+        <div
+          aria-hidden="true"
+          className="aspect-video border-b border-border bg-muted"
+        />
       )}
 
       <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">

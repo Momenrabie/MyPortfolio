@@ -7,7 +7,7 @@ import { about, type AboutTextSegment } from "@/lib/content/about";
 
 export function AboutSection() {
   return (
-    <SectionShell id="about" className="md:py-28">
+    <SectionShell id="about">
       <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5" delay="sm" from="left">
           <div className="relative">
@@ -16,13 +16,24 @@ export function AboutSection() {
               className="pointer-events-none absolute -inset-8 -z-10 bg-primary/20 blur-3xl"
             />
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
-              <Image
-                src={about.portrait.src}
-                alt={about.portrait.alt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-              />
+              <div className="absolute inset-0 dark:invisible">
+                <Image
+                  src={about.portrait.lightSrc}
+                  alt={about.portrait.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
+              </div>
+              <div className="absolute inset-0 invisible dark:visible">
+                <Image
+                  src={about.portrait.darkSrc}
+                  alt={about.portrait.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
+              </div>
             </div>
           </div>
         </Reveal>

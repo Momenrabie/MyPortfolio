@@ -199,7 +199,7 @@
   }
 
   html {
-    @apply scroll-pt-20 font-sans;
+    @apply scroll-pt-16 font-sans;
   }
 
   @media (prefers-reduced-motion: no-preference) {

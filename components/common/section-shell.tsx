@@ -16,7 +16,7 @@ export function SectionShell({
   innerClassName,
 }: SectionShellProps) {
   return (
-    <section id={id} className={cn("scroll-mt-20 px-6 py-20 md:py-24", className)}>
+    <section id={id} className={cn("px-6 pt-10 pb-20 md:pt-12 md:pb-24", className)}>
       <div
         className={cn(
           "mx-auto flex w-full max-w-6xl flex-col gap-12",

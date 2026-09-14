@@ -8,7 +8,8 @@ export const about = {
   eyebrow: "About",
   statement: "I ship the full stack — data, API, and interface.",
   portrait: {
-    src: "/images/about-portrait.jpg",
+    lightSrc: "/images/about-portrait.jpg",
+    darkSrc: "/images/about-portrait-dark.jpg",
     alt: "Momen Rabie, a full-stack engineer, with a graphic of the tools he builds with.",
   },
   paragraphs: [
