@@ -13,6 +13,7 @@ import {
 import {
   contact,
   getAvailableChannels,
+  isExternalChannel,
   type ContactChannelId,
 } from "@/lib/content/contact";
 
@@ -21,7 +22,10 @@ const channelIcons = {
   linkedin: LinkedInIcon,
   github: GitHubIcon,
   whatsapp: WhatsAppIcon,
-} as const satisfies Record<ContactChannelId, ComponentType<{ className?: string }>>;
+} as const satisfies Record<
+  ContactChannelId,
+  ComponentType<{ className?: string }>
+>;
 
 export function ContactSection() {
   const channels = getAvailableChannels();
@@ -41,46 +45,43 @@ export function ContactSection() {
         <Reveal delay="sm" className="lg:col-span-6">
           <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
             <div className="flex items-start gap-3 text-muted-foreground">
-              <MapPin className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+              <MapPin
+                className="mt-0.5 size-5 shrink-0 text-primary"
+                aria-hidden="true"
+              />
               <p className="text-base text-foreground">{contact.location}</p>
             </div>
 
-            {channels.length > 0 ? (
-              <ul className="flex flex-col gap-3">
-                {channels.map((channel) => {
-                  const Icon = channelIcons[channel.id];
+            <ul className="flex flex-col gap-3">
+              {channels.map((channel) => {
+                const Icon = channelIcons[channel.id];
+                const external = isExternalChannel(channel);
 
-                  return (
-                    <li key={channel.id}>
-                      <a
-                        href={channel.href}
-                        target={channel.id === "email" ? undefined : "_blank"}
-                        rel={
-                          channel.id === "email"
-                            ? undefined
-                            : "noopener noreferrer"
-                        }
-                        className="flex items-center gap-3 rounded-xl border border-border bg-secondary px-4 py-3 text-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
-                      >
-                        <Icon className="size-5 text-primary" />
-                        <span className="font-medium">
+                return (
+                  <li key={channel.id}>
+                    <a
+                      href={channel.href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                      className="flex items-center gap-3 rounded-xl border border-border bg-secondary px-4 py-3 text-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+                    >
+                      <Icon className="size-5 shrink-0 text-primary" />
+                      <span className="flex min-w-0 flex-col">
+                        <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                          {channel.label}
+                        </span>
+                        <span className="truncate font-medium">
                           {channel.display ?? channel.label}
                         </span>
-                        {channel.id !== "email" ? (
-                          <span className="sr-only">(opens in a new tab)</span>
-                        ) : null}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p className="text-base leading-relaxed text-muted-foreground">
-                Direct links for email, LinkedIn, GitHub, and WhatsApp will
-                appear here. Until then, I&apos;m based in {contact.location} and
-                open to new work.
-              </p>
-            )}
+                      </span>
+                      {external ? (
+                        <span className="sr-only">(opens in a new tab)</span>
+                      ) : null}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </Reveal>
       </div>

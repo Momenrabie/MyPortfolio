@@ -5,11 +5,17 @@ import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 
 import { AppButton } from "@/components/app/app-button";
+import { NavLink } from "@/components/common/nav-link";
+import {
+  getSectionIdFromHref,
+  useActiveSection,
+} from "@/hooks/use-active-section";
 import { NAV_ITEMS } from "@/lib/constants";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const { activeId, selectSection } = useActiveSection();
 
   useEffect(() => {
     if (!open) {
@@ -33,11 +39,13 @@ export function MobileNav() {
 
   function handleNavigate(href: (typeof NAV_ITEMS)[number]["href"]) {
     setOpen(false);
-    const id = href.split("#")[1];
+    const id = getSectionIdFromHref(href);
 
     if (!id) {
       return;
     }
+
+    selectSection(id);
 
     window.requestAnimationFrame(() => {
       document.getElementById(id)?.scrollIntoView({
@@ -71,17 +79,22 @@ export function MobileNav() {
         >
           <nav aria-label="Mobile" className="mx-auto max-w-6xl px-6 py-6">
             <ul className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => handleNavigate(item.href)}
-                    className="block rounded-lg px-3 py-3 text-base text-foreground transition-colors hover:bg-secondary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const sectionId = getSectionIdFromHref(item.href);
+
+                return (
+                  <li key={item.href}>
+                    <NavLink
+                      href={item.href}
+                      label={item.label}
+                      isActive={sectionId === activeId}
+                      onSelect={selectSection}
+                      className="block rounded-lg px-3 py-3 text-base after:right-3 after:bottom-2 after:left-3 after:h-0.5"
+                      onClick={() => handleNavigate(item.href)}
+                    />
+                  </li>
+                );
+              })}
             </ul>
             <AppButton asChild className="mt-4 w-full rounded-full">
               <Link href="/#contact" onClick={() => handleNavigate("/#contact")}>
