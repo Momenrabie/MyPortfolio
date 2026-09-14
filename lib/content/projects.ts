@@ -13,11 +13,11 @@ export type ProjectItem = {
 };
 
 export const projects = {
-  index: "04",
+  index: "03",
   eyebrow: "Projects",
   heading: "Selected work.",
   description:
-    "Production work I shipped at Vylor AI and Agillo. Screenshots can land later — the products are live now.",
+    "Production work I shipped at Vylor AI and Agillo. Live products, real interfaces.",
   items: [
     {
       id: "vylor",
@@ -26,6 +26,7 @@ export const projects = {
       description:
         "A cloud workspace that maps team repositories, plans cross-repo work, and delivers coordinated changes without local setup friction.",
       liveUrl: "https://vylorai.com/",
+      imageSrc: "/images/projects/vylor.png",
       techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
       preview: "vylor",
     },
@@ -36,6 +37,7 @@ export const projects = {
       description:
         "Custom software studio site and production interfaces for a Cairo team serving product, media, and fintech clients.",
       liveUrl: "https://agillo.net/",
+      imageSrc: "/images/projects/agillo.png",
       techStack: ["React", "TypeScript", "Responsive UI", "CSS"],
       preview: "agillo",
     },

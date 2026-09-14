@@ -54,6 +54,24 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-brand-css: var(--brand-css);
+  --color-brand-docker: var(--brand-docker);
+  --color-brand-express: var(--brand-express);
+  --color-brand-figma: var(--brand-figma);
+  --color-brand-github-actions: var(--brand-github-actions);
+  --color-brand-html5: var(--brand-html5);
+  --color-brand-nextjs: var(--brand-nextjs);
+  --color-brand-nodejs: var(--brand-nodejs);
+  --color-brand-postgresql: var(--brand-postgresql);
+  --color-brand-prisma: var(--brand-prisma);
+  --color-brand-radix: var(--brand-radix);
+  --color-brand-react: var(--brand-react);
+  --color-brand-redis: var(--brand-redis);
+  --color-brand-shadcn: var(--brand-shadcn);
+  --color-brand-tailwind: var(--brand-tailwind);
+  --color-brand-typescript: var(--brand-typescript);
+  --color-brand-vercel: var(--brand-vercel);
+  --color-brand-zod: var(--brand-zod);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -96,6 +114,24 @@
   --sidebar-accent-foreground: var(--color-ink-950);
   --sidebar-border: #ddd4c4;
   --sidebar-ring: var(--color-terracotta-600);
+  --brand-css: #663399;
+  --brand-docker: #2496ed;
+  --brand-express: #000000;
+  --brand-figma: #f24e1e;
+  --brand-github-actions: #2088ff;
+  --brand-html5: #e34f26;
+  --brand-nextjs: #000000;
+  --brand-nodejs: #5fa04e;
+  --brand-postgresql: #4169e1;
+  --brand-prisma: #2d3748;
+  --brand-radix: #161618;
+  --brand-react: #61dafb;
+  --brand-redis: #ff4438;
+  --brand-shadcn: #000000;
+  --brand-tailwind: #06b6d4;
+  --brand-typescript: #3178c6;
+  --brand-vercel: #000000;
+  --brand-zod: #408aff;
 }
 
 .dark {
@@ -130,6 +166,12 @@
   --sidebar-accent-foreground: var(--color-mist-50);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: var(--color-blue-500);
+  --brand-express: #ffffff;
+  --brand-nextjs: #ffffff;
+  --brand-prisma: #ffffff;
+  --brand-radix: #ffffff;
+  --brand-shadcn: #ffffff;
+  --brand-vercel: #ffffff;
 }
 
 @keyframes marquee {

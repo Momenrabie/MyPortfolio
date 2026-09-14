@@ -17,7 +17,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             src={project.imageSrc}
             alt={`${project.title} preview`}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </div>
